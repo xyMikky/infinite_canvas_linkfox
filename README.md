@@ -11,16 +11,20 @@
 
 ## 启动
 
+克隆后进入 `web` 目录。从 GitHub 下载压缩包时，解压目录名是 `infinite_canvas_linkfox-main`，同样进入其中的 `web`。
+
 ```bash
 git clone https://github.com/xyMikky/infinite_canvas_linkfox.git
 cd infinite_canvas_linkfox/web
-npm install
+npm install --legacy-peer-deps
 npm run dev
 ```
 
-浏览器打开 http://localhost:3000 。进入右上角设置，填入 LinkFox API Key，然后就可以在画布里生图、生视频、生文。
+`npm install` 不加后面的参数会中途退出。项目使用 `antd` 6，`@ant-design/pro-components` 声明配合 `antd` 5，npm 会因此停止安装。`--legacy-peer-deps` 只让安装继续，装上的仍是项目里的 `antd` 6，不改变画布和生成功能。
 
-也可以用 Bun：在 `web` 目录执行 `bun install` 和 `bun run dev`。
+每条命令单独回车。`npm install` 结束后再执行 `npm run dev`。浏览器打开 http://localhost:3000 ，在右上角设置里填入自己的 LinkFox API Key。
+
+用 Bun 时，在 `web` 目录执行 `bun install` 和 `bun run dev`。
 
 用 Docker 时，在仓库根目录执行：
 
@@ -51,7 +55,7 @@ docker compose up -d
 
 ```bash
 cd web
-npm install
+npm install --legacy-peer-deps
 npm run electron:pack
 ```
 
