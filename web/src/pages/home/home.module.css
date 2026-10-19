@@ -1,0 +1,58 @@
+.home { --home-accent: #e23b4c; }
+.home button, .home a { -webkit-tap-highlight-color: transparent; }
+.home button { cursor: pointer; }
+.home :is(button, a):focus-visible { outline: 2px solid var(--home-accent); outline-offset: 5px; }
+.intro { animation: arrive 550ms ease-out both; }
+.showcase { animation: arrive 700ms 80ms ease-out both; }
+.accentLine { width: 22px; height: 2px; background: var(--home-accent); }
+.headline { font-size: clamp(48px, 4.5vw, 72px); font-weight: 600; line-height: 1.24; letter-spacing: -0.055em; }
+.headlineDot { display: inline-block; width: 9px; height: 9px; margin-left: 13px; background: var(--home-accent); border-radius: 50%; }
+.primaryAction { display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 20px; border: 1px solid var(--foreground); border-radius: 7px; background: var(--foreground); color: var(--background); font-size: 14px; font-weight: 500; transition: opacity 160ms, transform 160ms; }
+.primaryAction:hover { opacity: .85; transform: translateY(-1px); }
+.primaryAction:disabled { cursor: wait; opacity: .45; transform: none; }
+.textLink { display: inline-flex; align-items: center; gap: 12px; padding-block: 10px; }
+.textLink svg, .toolArrow { transition: transform 180ms; }
+.textLink:hover svg { transform: translateX(3px); }
+.sceneButton { position: relative; padding-block: 8px; color: var(--muted-foreground); font-size: 12px; transition: color 160ms; }
+.sceneButton:hover, .sceneButton[aria-pressed="true"] { color: var(--foreground); }
+.sceneButton[aria-pressed="true"]::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: var(--home-accent); content: ""; }
+.stage { position: relative; aspect-ratio: 720 / 500; overflow: hidden; container-type: inline-size; border: 1px solid var(--home-line); border-radius: 12px; background-color: var(--home-canvas); background-image: radial-gradient(var(--home-dot) .65px, transparent .65px); background-size: 20px 20px; }
+.stage::after { position: absolute; inset: 0; border: 10px solid var(--home-canvas); border-radius: inherit; pointer-events: none; content: ""; }
+.scene { position: absolute; inset: 0; font-size: clamp(8px, 2cqw, 16px); animation: arrive 230ms ease-out both; }
+.connections { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--muted-foreground); }
+.previewNode { position: absolute; padding: 2.3%; border: 1px solid var(--home-stroke); border-radius: 7px; background: var(--home-panel); }
+.previewNode > p { margin-top: .75em; }
+.brief > div:not(:first-child) { margin-top: 1em; }
+.brief { top: 14%; left: 3%; width: 28%; transform: rotate(-3deg); }
+.note { top: 58%; left: 13%; width: 19%; transform: rotate(2deg); }
+.nodeLabel { display: flex; align-items: center; gap: .5em; font-size: .7em; color: var(--muted-foreground); }
+.nodeLabel svg, .outputLabel svg { width: 1.1em; height: 1.1em; flex-shrink: 0; }
+.output { position: absolute; top: 10%; left: 36%; width: 35%; height: 68%; border: 1px solid var(--home-accent); border-radius: 2px; padding: 4px; }
+.outputLabel { position: absolute; bottom: calc(100% + 7px); left: 0; display: flex; align-items: center; gap: .5em; font-size: .65em; white-space: nowrap; color: var(--muted-foreground); }
+.poster { display: flex; height: 100%; flex-direction: column; overflow: hidden; padding: 8%; background: var(--foreground); color: var(--background); }
+.posterLogo { flex: 1; min-height: 0; margin: 4% -3% 0; background: currentColor; mask: url('/logo.svg') center / contain no-repeat; }
+.posterTitle { margin-block: 4% 8%; font-size: 2.1em; font-weight: 600; line-height: 1.1; letter-spacing: .06em; }
+.handle { position: absolute; right: -4px; bottom: -4px; width: 7px; height: 7px; border: 1px solid var(--home-accent); background: var(--home-panel); }
+.result { top: 65%; left: 75%; width: 22%; }
+.cursor { position: absolute; top: 82%; left: 59%; display: flex; align-items: flex-start; gap: 3px; color: var(--home-accent); }
+.cursor > svg { width: 1.4em; height: 1.4em; fill: var(--home-accent); stroke: var(--home-canvas); stroke-width: 1.5; }
+.cursor > span { margin-top: 1em; padding: .3em .65em; border: 1px solid currentColor; border-radius: 3px; background: var(--home-panel); font-size: .65em; }
+.ideaMap { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; padding-block: 12%; font-size: .9em; }
+.ideaMap > span { padding: .7em 1.1em; border: 1px solid currentColor; border-radius: 3px; }
+.ideaMap i { width: 1px; height: 2em; background: currentColor; opacity: .45; }
+.ideaMap > div { display: flex; width: 100%; justify-content: space-between; gap: .4em; border-top: 1px solid currentColor; padding-top: 1em; }
+.ideaMap > div span { padding: .5em; border: 1px solid currentColor; border-radius: 3px; font-size: .7em; }
+.ideaMap > p { margin-top: 2em; text-align: center; font-size: .75em; opacity: .65; }
+.plan { display: flex; flex: 1; flex-direction: column; justify-content: center; }
+.plan > strong { margin-bottom: 1.2em; font-size: 1.5em; font-weight: 500; }
+.plan > div { display: flex; align-items: center; gap: .8em; border-top: 1px solid currentColor; padding-block: 1.2em; font-size: .75em; }
+.plan > div > span { opacity: .5; }
+.plan svg { margin-left: auto; width: 1.2em; height: 1.2em; }
+.toolLink { display: flex; align-items: flex-start; gap: 16px; border-radius: 3px; padding-block: 4px; }
+.toolArrow { width: 15px; height: 15px; color: var(--muted-foreground); opacity: .45; }
+.toolLink:hover .toolArrow { transform: translate(2px, -2px); color: var(--home-accent); opacity: 1; }
+.footerMark { width: 14px; height: 14px; background: currentColor; mask: url('/logo.svg') center / contain no-repeat; }
+@container (max-width: 400px) { .brief > p:last-child, .brief > div:not(:first-child) { display: none; } .scene { font-size: 2cqw; } }
+@keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 639px) { .headline { font-size: clamp(38px, 9vw, 54px); } .headlineDot { width: 7px; height: 7px; margin-left: 9px; } .stage { border-radius: 8px; } .previewNode { border-radius: 4px; } .sceneButton { font-size: 11px; } }
+@media (prefers-reduced-motion: reduce) { .intro, .showcase, .scene { animation: none; } .home button, .textLink svg, .toolArrow { transition: none; } .primaryAction:hover, .textLink:hover svg, .toolLink:hover .toolArrow { transform: none; } }

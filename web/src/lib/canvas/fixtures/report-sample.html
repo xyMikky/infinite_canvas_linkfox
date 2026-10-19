@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>REEVAA Report Sample</title>
+<style>
+:root {
+  --cr-fg: #E4E4E4EB; --cr-fg-2: #E4E4E48D; --cr-bg: #181818; --cr-fill: #E4E4E411;
+  --cr-fill-2: #E4E4E41E; --cr-stroke: #E4E4E433; --cr-stroke-2: #E4E4E41F;
+  --cr-accent: #E8C030E0; --cr-success: #3FA266; --cr-danger: #FC6B83; --cr-warning: #F1B467; --cr-info: #7BAFE9;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--cr-bg); color: var(--cr-fg); font: 14px/20px ui-sans-serif, system-ui, sans-serif; }
+.cr-page { max-width: 920px; margin: 0 auto; padding: 28px 24px 48px; }
+.cr-stack { display: flex; flex-direction: column; gap: 16px; }
+.cr-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cr-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.cr-h1 { margin: 0; font-size: 24px; line-height: 30px; font-weight: 590; color: #fff; }
+.cr-h2 { margin: 0; font-size: 18px; line-height: 24px; font-weight: 590; color: var(--cr-accent); }
+.cr-meta { font-size: 12px; color: var(--cr-fg-2); }
+.cr-pill { display: inline-flex; padding: 4px 10px; border-radius: 6px; background: var(--cr-fill-2); border: 1px solid var(--cr-stroke-2); font-size: 12px; }
+.cr-stat-value { font-size: 28px; line-height: 34px; font-weight: 590; color: #fff; }
+.cr-stat-value.warning { color: var(--cr-warning); }
+.cr-stat-value.success { color: var(--cr-success); }
+.cr-stat-label { font-size: 12px; color: var(--cr-fg-2); }
+.cr-callout { display: flex; gap: 10px; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--cr-stroke); background: var(--cr-fill); }
+.cr-hbar-row { display: grid; grid-template-columns: 72px 1fr auto; gap: 10px; align-items: center; margin: 8px 0; }
+.cr-hbar-track { height: 8px; border-radius: 4px; background: var(--cr-fill-2); overflow: hidden; }
+.cr-hbar-fill { height: 100%; background: var(--cr-accent); border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="cr-page">
+  <div class="cr-stack">
+    <div>
+      <h1 class="cr-h1">REEVAA 卡车地板罩 · 转化与广告深析</h1>
+      <div class="cr-meta">样本数据 · 近 7 日 · ASIN 示例</div>
+      <div class="cr-row" style="margin-top:8px">
+        <span class="cr-pill">CVR 2.82%</span>
+        <span class="cr-pill">ACoS 18.4%</span>
+        <span class="cr-pill">Sessions 12.6k</span>
+      </div>
+    </div>
+    <div class="cr-callout">
+      <strong>!</strong>
+      <div>
+        <div style="font-weight:590;margin-bottom:4px">结论</div>
+        <div class="cr-meta">流量结构健康，但加购到下单掉点偏大；优先压广告浪费点击并补详情页信任证据。</div>
+      </div>
+    </div>
+    <div class="cr-grid-4">
+      <div><div class="cr-stat-value">2.82%</div><div class="cr-stat-label">转化率</div></div>
+      <div><div class="cr-stat-value warning">18.4%</div><div class="cr-stat-label">ACoS</div></div>
+      <div><div class="cr-stat-value success">1.42</div><div class="cr-stat-label">ROAS</div></div>
+      <div><div class="cr-stat-value">¥86</div><div class="cr-stat-label">客单价</div></div>
+    </div>
+    <div>
+      <h2 class="cr-h2">1. 整链漏斗</h2>
+      <div class="cr-hbar-row"><span class="cr-meta">曝光</span><div class="cr-hbar-track"><div class="cr-hbar-fill" style="width:100%"></div></div><span>100k</span></div>
+      <div class="cr-hbar-row"><span class="cr-meta">点击</span><div class="cr-hbar-track"><div class="cr-hbar-fill" style="width:82%"></div></div><span>8.2k</span></div>
+      <div class="cr-hbar-row"><span class="cr-meta">加购</span><div class="cr-hbar-track"><div class="cr-hbar-fill" style="width:21%"></div></div><span>2.1k</span></div>
+      <div class="cr-hbar-row"><span class="cr-meta">下单</span><div class="cr-hbar-track"><div class="cr-hbar-fill" style="width:6%"></div></div><span>590</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

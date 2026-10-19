@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill 拆解蓝图"
+  short_description: "把 Skill 的目标、门禁、流程与上下游拆解成可视化蓝图"
+  default_prompt: "$skill-blueprint 拆解这个 Skill 的架构，生成可视化蓝图"

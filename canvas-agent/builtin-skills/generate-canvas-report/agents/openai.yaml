@@ -1,0 +1,4 @@
+interface:
+  display_name: "生成 Canvas 报告"
+  short_description: "生成可视化 Canvas 报告（.canvas.tsx / 单文件 HTML）"
+  default_prompt: "$generate-canvas-report 用当前数据做一份 Canvas 可视化报告"

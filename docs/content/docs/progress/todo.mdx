@@ -1,0 +1,18 @@
+---
+title: TODO
+description: Planned follow-up work
+---
+
+# TODO
+
+- HTML UI 画板后续：增加 React/脚本生成文字的结构化数据适配与显式源文件回写流程，当前仅编辑 `data-ui-text` 静态文字字段（允许换行 br）并保存到节点。为任意 JS 动效、视频/WebGL 设计暂停适配；补齐多画板快照休眠、Activity 恢复与交互状态保留。现有 HTML 延续同源 iframe 预览，执行隔离需连同文件夹资源、文案事件和导出桥接一起设计。
+
+- 素材空间回收：实现可恢复的回收站与跨窗口引用确认后，再提供物理清理入口；当前删除节点或资产保留原始素材，避免破坏备份和进行中的上传。
+
+- Canvas TSX 主预览执行隔离：阅读与交付已使用无同源权限的 sandbox iframe；节点原生预览和展开测量仍在主页面执行，后续迁移时需要状态、主题、事件与拆分测量桥接，现有格式检查不构成安全沙箱。iframe 也不能保证 CPU/内存资源隔离。
+- Canvas TSX 交付覆盖：继续补充未访问动态分支的资源发现、嵌套 SVG 外部素材及链接附件的完整性检查；当前交付内嵌已发现的图片、音视频和字体，需在导出前逐一检查动态标签/折叠内容。展开片段独立修改反向合并源码仍未支持。
+- Canvas TSX 活图表内存：当前闲置片段使用局部快照，屏幕外已访问预览由 Activity 保留状态并暂停 React 副作用；仍需将唤醒后的运行范围缩小到目标块，减少访问大量片段后保留的整份报告组件树。iframe 自身脚本不受 React Activity 控制，执行隔离时需一并设计暂停协议。
+- Agent 面板 Cursor 引擎的 Skill 创建/启停/编辑、模型列表尚未对齐 Codex，后续再补。
+- Replace the Claude Code CLI adapter with a Claude Agent SDK adapter and improve the tool queue, following the [Local Agent Integration Plan](/docs/progress/local-agent-integration-plan).
+- Add Skill installation from web search, Skill resource-file management, and controlled local-memory persistence.
+- Run a Codex auth health check before generation, and warn when another Codex Desktop / app-server shares `~/.codex/auth.json` (or isolate `CODEX_HOME`) so the two instances stop revoking each other's refresh token.
