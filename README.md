@@ -1,79 +1,53 @@
-<p align="center">
-  <img src="web/public/logo.svg" width="96" alt="infinite-canvas logo">
-</p>
+# 无限画布
 
-<h1 align="center">无限画布 (infinite-canvas)</h1>
+在一块可以不断平移、缩放的画布上编排内容，并用 [LinkFox](https://wiki.linkfox.com/) 生成图片、视频和文本。生成结果回到画布上，可以继续连线、改提示词、再生成。
 
-<p align="center">
-  <a href="https://linux.do/"><img src="https://img.shields.io/badge/Linux.do-Community-2b6de8?style=flat-square" alt="Linux.do"></a>
-  <a href="https://render.com/deploy?repo=https://github.com/basketikun/infinite-canvas"><img src="https://img.shields.io/badge/Render-Deploy-46e3b7?style=flat-square&logo=render&logoColor=111111" alt="Deploy to Render"></a>
-  <a href="https://github.com/basketikun/infinite-canvas"><img src="https://img.shields.io/github/stars/basketikun/infinite-canvas?style=flat-square&logo=github" alt="GitHub stars"></a>
-  <a href="https://github.com/basketikun/infinite-canvas/tags"><img src="https://img.shields.io/github/v/tag/basketikun/infinite-canvas?style=flat-square&label=version" alt="Version"></a>
-  <a href="https://vite.dev/"><img src="https://img.shields.io/badge/Vite-7-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite"></a>
-  <a href="https://reactrouter.com/"><img src="https://img.shields.io/badge/React_Router-7-ca4245?style=flat-square&logo=reactrouter&logoColor=white" alt="React Router"></a>
-</p>
+这个仓库只包含程序。LinkFox API Key、画布项目和素材都在使用者自己的浏览器里，下载后不会带上别人的密钥或作品。
 
-<p align="center">
-<a href="https://trendshift.io/repositories/50077?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-50077" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/50077" alt="basketikun%2Finfinite-canvas | Trendshift" width="250" height="55"/></a>
-</p>
+## 使用前
 
-<p align="center">
-  <a href="docs/content/docs/overview/quick-start.mdx">快速开始</a> · <a href="docs/content/docs/overview/features.mdx">功能介绍</a> · <a href="docs/content/docs/overview/render.mdx">Render 部署</a> · <a href="docs/content/docs/overview/docker.mdx">Docker 部署</a> · <a href="docs/content/docs/canvas/canvas-node-manual.mdx">画布节点操作手册</a> · <a href="docs/content/docs/canvas/canvas-shortcuts.mdx">画布快捷键</a> · <a href="SECURITY.md">漏洞提交</a> · <a href="docs/content/docs/progress/todo.mdx">待办事项</a> · <a href="canvas-agent/README.md">本地 Canvas Agent</a> · <a href="plugins/infinite-canvas">Codex app 插件</a>
-</p>
+- 需要自己的 LinkFox API Key。接口地址已经固定为 LinkFox，设置里只填密钥。
+- 需要 Node.js。依赖没有放进仓库，克隆后要先安装。
 
-无限画布是一款面向图片创作的开源工作台，本分支已适配 [LinkFox](https://wiki.linkfox.com/)。它把画布编排、AI 图片生成、参考图编辑、对话助手、提示词库和素材沉淀放在同一个界面里；文生图、图生图、文本与视频生成对接 LinkFox，适合用来探索视觉方案并连续迭代图片结果。
-
-> [!CAUTION]
-> 项目目前处于开发阶段，不保证历史数据兼容。各种本地存储格式都可能直接调整，欢迎关注后续更新。
->
-> 如果你需要稳定维护自己的分支，建议自行 fork 后独立开发。二次开发与 PR 请保留原作者信息和前端页面标识。
-
-## 核心功能
-
-- 无限画布：多画布项目、节点拖拽缩放、连线、小地图、撤销重做、导入导出。
-- AI 创作：已适配 LinkFox，支持文生图、图生图、参考图编辑、文本问答、音频和视频生成。
-- 画布助手：围绕选中节点和上游节点对话、生图，并把结果插回画布。
-- 本地 Agent：通过本机 Canvas Agent 连接 Codex / Claude Code，让 Agent 通过 MCP 操作当前画布；
-- Codex App 插件：提供 Codex app 插件，安装后会自动注册 MCP 并尝试拉起本地 Agent。
-- 插件系统：支持通过 URL 动态安装 / 启用 / 更新 / 卸载远程节点插件，并提供 TypeScript SDK 自行开发画布节点插件。
-- 自定义接口调用：可自定义生图 / 视频接口的调用方式，灵活适配各类中转站与自建服务。
-- 提示词库：浏览器前端直连多个 GitHub 开源项目，并缓存到 IndexedDB。
-
-完整功能说明见 [功能介绍](docs/content/docs/overview/features.mdx)。
-
-如果你在为担心没有合适的生图API来发愁，可以查看该免费生图项目：[chatgpt2api](https://github.com/basketikun/chatgpt2api)
-
-## 快速开始
-
-AI API Key、Base URL、画布、素材和生成记录默认保存在浏览器本地。
-
-### 本地开发
+## 启动
 
 ```bash
-git clone git@github.com:basketikun/infinite-canvas.git
-cd infinite-canvas
-cd web
-bun install
-bun run dev
+git clone https://github.com/xyMikky/infinite_canvas_linkfox.git
+cd infinite_canvas_linkfox/web
+npm install
+npm run dev
 ```
 
-### Docker 运行
+浏览器打开 http://localhost:3000 。进入右上角设置，填入 LinkFox API Key，然后就可以在画布里生图、生视频、生文。
+
+也可以用 Bun：在 `web` 目录执行 `bun install` 和 `bun run dev`。
+
+用 Docker 时，在仓库根目录执行：
 
 ```bash
-git clone git@github.com:basketikun/infinite-canvas.git
-cd infinite-canvas
 docker compose up -d
 ```
 
-运行后默认端口3000，可访问 `http://localhost:3000`。
+同样访问 http://localhost:3000 ，并填写自己的 LinkFox API Key。
 
-首次打开后进入右上角配置，填入自己的 OpenAI 兼容 `Base URL` 和 `API Key`。
+## 画布里有什么
 
-如果默认的OpenAI接口调用方式与您的API不同，可自定义生图/视频脚本调用。
+- 多个画布项目，节点可以拖动、缩放、连线，支持小地图、撤销和导入导出。
+- 文生图、图生图、参考图编辑，以及文本和视频生成，都走 LinkFox。
+- 选中节点后可以让画布助手接着改，结果插回画布。
+- 本机可以接 Canvas Agent，用 Codex 或 Claude Code 通过 MCP 操作当前画布。这项需要自己安装并登录对应工具。
+- 提示词和素材保存在浏览器本地。
 
-### 桌面版打包（Windows）
+更细的说明：
 
-在 `web/` 目录安装依赖后执行：
+- [功能介绍](docs/content/docs/overview/features.mdx)
+- [画布节点操作手册](docs/content/docs/canvas/canvas-node-manual.mdx)
+- [画布快捷键](docs/content/docs/canvas/canvas-shortcuts.mdx)
+- [本地 Canvas Agent](canvas-agent/README.md)
+
+## Windows 桌面版
+
+桌面安装包不在仓库里，需要本机打包：
 
 ```bash
 cd web
@@ -81,60 +55,6 @@ npm install
 npm run electron:pack
 ```
 
-产物输出到 `web/release/`：
+安装包在 `web/release/InfiniteCanvas-<version>-win-x64.exe`。只要目录、不装安装包时，用 `npm run electron:pack:dir`，程序在 `web/release/win-unpacked/InfiniteCanvas.exe`。
 
-- 安装包：`web/release/InfiniteCanvas-<version>-win-x64.exe`（NSIS，可改安装目录）
-- 免安装目录：`web/release/win-unpacked/InfiniteCanvas.exe`
-
-仅打免安装目录可用 `npm run electron:pack:dir`。
-
-桌面安装包会内置 Canvas Agent：本机已安装并登录 Codex 后，可在 Agent 面板点「一键启动」，无需再单独安装 Node.js。未检测到 Codex 时一键启动不可用；也可继续用 Codex 插件（方式一）连接。
-
-## 效果展示
-
-<table width="100%">
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/TDFvGWDT/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/zVwJq3YS/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/PvY3qhhK/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/7D04LwN/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/bj30FtS5/5.png" alt="5" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/hxRvjw51/image.png" alt="image" border="0"></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="https://i.ibb.co/jkWsF8q1/image.png" alt="image" border="0"></td>
-    <td width="50%"><img src="https://i.ibb.co/XrnfXHx7/image.png" alt="image" border="0"></td>
-  </tr>
-</table>
-
-## 联系方式
-
-项目定制二次开发需求 / 生图 API 需求可联系。
-
-邮箱：1844025705@qq.com · QQ：1844025705
-
-## 赞助支持
-
-本项目长期开放广告赞助合作，欢迎品牌 / 产品投放，你的支持是持续更新的动力！
-
-有广告赞助意向请通过上方联系方式沟通。
-
-## 社区支持
-
-学 AI，上 L 站：[LinuxDO](https://linux.do/)
-
-点击链接加入群聊【AI开源交流】：https://qm.qq.com/q/DFnKzZ807u
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=basketikun%2Finfinite-canvas&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=basketikun/infinite-canvas&type=date&legend=top-left" />
- </picture>
-</a>
+打包时会拉取 Canvas Agent 运行所需的程序。Codex 仍要装在使用那台电脑上，装好并登录后，才能在 Agent 面板里一键启动。
